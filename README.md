@@ -3,3 +3,5 @@ Some solutions for the Hadoop online course from mail.ru, the complete course yo
 
 In the related folders you can find some solutions for the tasks using MapReduce Streaming.   
 During this project I've used **python 3.4** for getting the prototypes without spending a great amount of time for additional routine.
+
+The additional information about tasks you can find in the folders with solutions(like Week4 or Week5).
