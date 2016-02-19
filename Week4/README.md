@@ -106,3 +106,166 @@ a	b:1,c:1
 b	a:2,c:1   
 a	b:1,c:1   
 c	b:1,a:2   
+   
+**p2t1**  - Mapper for filtering   
+**Sample Input:**   
+1448713968	user2	https://ru.wikipedia.org/   
+1448764519	user10	https://stepic.org/   
+1448713968	user5	http://google.com/   
+1448773411	user10	https://stepic.org/explore/courses   
+1448709864	user3	http://vk.com/   
+**Sample Output:**   
+1448764519	user10	https://stepic.org/   
+1448773411	user10	https://stepic.org/explore/courses   
+   
+**p2t2** - Mapper for resolving only part of the input information   
+**Sample Input:**   
+1448713968	user2	https://ru.wikipedia.org/   
+1448764519	user10	https://stepic.org/   
+1448713968	user5	http://google.com/   
+1448773411	user10	https://stepic.org/explore/courses   
+1448709864	user3	http://vk.com/   
+**Sample Output:**   
+https://ru.wikipedia.org/   
+https://stepic.org/   
+http://google.com/   
+https://stepic.org/explore/courses   
+http://vk.com/   
+   
+**p2t3** - Reducer for uniting the input sets   
+**Sample Input:**   
+1	A   
+2	A   
+2	B   
+3	B   
+**Sample Output:**   
+1   
+2   
+3   
+   
+**p2t4** - Reducer for set intersectioning   
+**Sample Input:**   
+1	A   
+2	A   
+2	B   
+3	B   
+**Sample Output:**   
+2   
+   
+**p2t5** - Reducer for set complementing   
+**Sample Input:**   
+1	A   
+2	A   
+2	B   
+3	B   
+**Sample Output:**   
+1   
+   
+**p2t6** - Reducer for set simetrical complementing   
+**Sample Input:**   
+1	A   
+2	A   
+2	B   
+3	B   
+**Sample Output:**   
+1   
+3   
+   
+**p2t7** - Reducer for joining two input queries by user id   
+**Sample Input:**
+user1	query:гугл   
+user1	url:google.ru   
+user2	query:стэпик   
+user2	query:стэпик курсы   
+user2	url:stepic.org   
+user2	url:stepic.org/explore/courses   
+user3	query:вконтакте   
+**Sample Output:**   
+user1	гугл	google.ru   
+user2	стэпик	stepic.org   
+user2	стэпик	stepic.org/explore/courses   
+user2	стэпик курсы	stepic.org   
+user2	стэпик курсы	stepic.org/explore/courses   
+   
+**p3t1** - Mapper for first part of the TF-IDF problem   
+**Sample Input:**   
+1:aut Caesar aut nihil   
+1:aut aut   
+2:de mortuis aut bene aut nihil   
+**Sample Output:**   
+aut#1	1   
+Caesar#1	1   
+aut#1	1   
+nihil#1	1   
+aut#1	1   
+aut#1	1   
+de#2	1   
+mortuis#2	1   
+aut#2	1   
+bene#2	1   
+aut#2	1   
+nihil#2	1   
+   
+**p3t2** - Reducer for the first part of the TF-IDF problem   
+**Sample Input:**   
+aut#1	1   
+aut#1	1   
+aut#1	1   
+aut#1	1   
+aut#2	1   
+aut#2	1   
+bene#2	1   
+de#2	1   
+mortuis#2	1   
+nihil#1	1   
+nihil#2	1   
+Caesar#1	1   
+**Sample Output:**   
+aut	1	4   
+aut	2	2   
+bene	2	1   
+de	2	1   
+mortuis	2	1   
+nihil	1	1   
+nihil	2	1   
+Caesar	1	1   
+   
+**p3t3** - Mapper for the second part of the TF-IDF problem   
+**Sample Input:**   
+aut	1	4   
+aut	2	2   
+bene	2	1   
+de	2	1   
+mortuis	2	1   
+nihil	1	1   
+nihil	2	1   
+Caesar	1	1   
+**Sample Output:**   
+aut	1;4;1   
+aut	2;2;1   
+bene	2;1;1   
+de	2;1;1   
+mortuis	2;1;1   
+nihil	1;1;1   
+nihil	2;1;1   
+Caesar	1;1;1   
+   
+**p3t4** - Reducer for the second part of the TF-IDF problem   
+**Sample Input:**
+aut	1;4;1   
+aut	2;2;1   
+bene	2;1;1   
+de	2;1;1   
+mortuis	2;1;1   
+nihil	1;1;1   
+nihil	2;1;1   
+Caesar	1;1;1   
+**Sample Output:**   
+aut#1	4	2   
+aut#2	2	2   
+bene#2	1	1   
+de#2	1	1   
+mortuis#2	1	1   
+nihil#1	1	2   
+nihil#2	1	2   
+Caesar#1	1	1   
