@@ -1,5 +1,6 @@
 Short tasks overview   
-Week 4:   
+In case we use Hadoop Streaming => all the spaces between values in the input/output in the Mappers/Reducers are the tabulation characters(*'\t'*)   
+   
 **p1t1** - In-mapper combining v.1 for Hadoop WordCount   
    
 **p1t2** - In-mapper combining v.2 for Hadoop WordCount   
